@@ -23,11 +23,54 @@ public class incioPAM {
 
     }
 
-    public static LineamientosClassroom(){
-        
+    public static void FechasdeParciales(){
+        System.out.println("Primer parcial: 01-10-25");
+        System.out.println("Segundo parcial: 05-11-25");
+        System.out.println("Tercer parcial: 03-12-25");
+        System.out.println("Final: 08-12-25");
+    }
+
+    public static void PorcentajesporParcial(){
+        System.out.println("Primer parcial:");
+        System.out.println("E.Conocimiento: 40%");
+        System.out.println("E.Desempeño: 20%");
+        System.out.println("E.Producto: 30%");
+        System.out.println("P.Integrador: 10%");
+        System.out.println("-----------------------");
+        System.out.println("Segundo parcial:");
+        System.out.println("E.Conocimiento: 40%");
+        System.out.println("E.Desempeño: 20%");
+        System.out.println("E.Producto: 20%");
+        System.out.println("P.Integrador: 20%");
+        System.out.println("-----------------------");
+        System.out.println("Tercer parcial:");
+        System.out.println("E.Conocimiento: 20%");
+        System.out.println("E.Desempeño: 10%");
+        System.out.println("E.Producto: 40%");
+        System.out.println("P.Integrador: 30%");
+        System.out.println("-----------------------");
+    }
+
+    public static void LineamientosClassroom(){
+        System.out.println("System error 404");
+    }
+
+    public static void menu(){
+        System.out.println("Ingresa un el número dependiendo que información quieras checar");
+        System.out.println("1.Reglamento POO.");
+        System.out.println("2.Lineamientos Classroom.");
+        System.out.println("3.Fechas de Parciales.");
+        System.out.println("4.Porcentajes por Parcial");
+        System.out.println("5. Salir");
+        // no nos enseñaron a pedir variables en java, por lo que no puede ser usado un menú
+
     }
 
     public static void main(String[] args) {
         ReglamentoPOO();
+        LineamientosClassroom();
+        FechasdeParciales();
+        PorcentajesporParcial();
+
     }
 }
