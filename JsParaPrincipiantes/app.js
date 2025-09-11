@@ -20,7 +20,7 @@ false
 [true,false,true,false]
 
 // object
-
+/*
 {
     "username": 'ryan',
     "score": 70.4,
@@ -34,6 +34,7 @@ false
     "proffesional": false
 
 }
+*/
 //variable
 
  var nameuser = "jhon";
@@ -51,3 +52,70 @@ console.log(PI);
 //camelcase
 
 let userName = "gordon";
+
+
+// OPERADORES---------------------------
+
+let NumberOne = 50;
+let NumberTwo = 100;
+
+let result = NumberOne + NumberTwo;
+console.log(result);
+
+let Name = "Jhon";
+let lastName = "Carter";
+
+let CompleteName = Name + LastName;
+console.log(CompleteName);
+
+
+let NumOne = 50;
+let NumTwo = 100;
+
+let res = NumOne > NumTwo;
+console.log(res);
+
+
+
+let passwordDBD = 'holaMundo'
+
+let input = 'asdasdasdadassdasdsa'
+
+let Resul = input == passwordDBD;
+
+console.log(Resul);
+//IF----------------------------------
+
+if (result == true){
+    console.log("login correcto");
+}else{
+    console.log("Constraseña incorrecta");
+}
+
+
+let score = 20;
+
+if (score > 30){
+    console.log("You need to practice more");
+}else if(score > 15){
+    console.log("Estas mejorando");
+}else{
+    console.log("You need to follow this tutorial");
+}
+//--------------Switch Case---------------
+
+let typeCard = 'Debid Card';
+
+switch(typeCard){
+    case'Debid Card':
+        console.log('This is a debid card');
+        break;
+    case 'Credit Card':
+        console.log("This is a Credit Card");
+        break;
+    default:
+        console.log("No card");        
+        
+}
+
+
