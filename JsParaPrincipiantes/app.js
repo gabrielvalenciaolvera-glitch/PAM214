@@ -119,3 +119,30 @@ switch(typeCard){
 }
 
 
+
+// BUCLES------------------------------------------------
+
+
+//while
+
+let count = 50;
+
+while(count > 0){
+    console.log(count);
+    count = count - 1;
+}
+
+
+//For
+
+let names = ['ryan',  'joe', 'pepe'];
+
+console.log(names.length);
+
+
+for (let i = 0; i < names.length; i++){
+    console.log("hola "+names[i]);
+}
+
+
+
