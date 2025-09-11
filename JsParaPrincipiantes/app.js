@@ -146,3 +146,17 @@ for (let i = 0; i < names.length; i++){
 
 
 
+// Funciones-----------------------------------------------
+
+function greeting(nombre){
+    console.leg( 'Hello' + nombre);
+}
+
+greeting('Gabo');
+
+function sumar(n1,n2){
+    console.log(n1 + n2);
+}
+
+sumar(5,6);
+
