@@ -1,13 +1,14 @@
 //1. imports: Zona de importaciones
+import MenuScreen from './screens/MenuScreen';
 import ContadorScreen from './screens/ContadorScreen';
 
 //2. Mainimports: Zona de componentes
 export default function App() {
 
   return (
-    <ContadorScreen></ContadorScreen>
+    <MenuScreen/>
   );
 }
 
-//3. Estilos: Zona estetica y posicionamiento
+
 
