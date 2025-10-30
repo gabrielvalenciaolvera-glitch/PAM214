@@ -6,28 +6,26 @@ export default function ScrollScreen(){
   const [accion, setAccion] = useState('nada');
   const [isDisabled, setDisabled] = useState(false);
 
-  //agregamos nosotros e importamos el RefreshControl
+  
   const [refreshing, setRefreshing] = useState(false);
   const onRefresh = () => {
   setRefreshing(true);
   setTimeout(() => {
     setRefreshing(false);
-  }, 2000); // 2 segundos de espera simulando carga
+  }, 2000); // 2 segundos
 };
 
 
     return (
-      //lo agregamos nosotros (ScrollView)
       <ScrollView
       showsVerticalScrollIndicator={false}
 
       refreshControl = {
         <RefreshControl refreshing ={refreshing} onRefresh={onRefresh} />
       }
-      // <-- CAMBIO 1: Añadimos la propiedad para fijar el primer elemento (índice 0)
+      // <Añadimos la propiedad para fijar el primer elemento (índice 0)
             stickyHeaderIndices={[0]}
       
-      //agregamos el view styles .header y el view style.content
       >
       <View style={styles.header}>
         <Text>
