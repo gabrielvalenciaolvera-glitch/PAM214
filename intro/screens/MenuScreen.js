@@ -4,10 +4,11 @@ import ContadorScreen from './ContadorScreen'
 import BotonesScreen from './BotonesScreen'
 import TextScreen from './TextScreen';
 import ImageScreen from './ImageScreen';
-import { ScrollView } from './ScrollViewScreen';
+import ScrollScreen from './ScrollViewScreen';
 import ActivityIndicatorScreen from './ActivityIndicatorScreen';
 import FlatListScreen, { FlatList } from './FlatListScreen';
 import ModalScreen from './ModalScreen';
+import RepasoScreen from './RepasoScreen';
 
 export default function MenuScreen() {
 
@@ -23,13 +24,15 @@ export default function MenuScreen() {
         case'ImageBackground':
             return<ImageScreen/>
         case'ScrollView':
-            return<ScrollView/>
+            return<ScrollScreen/>
         case'ActivityIndicator':
             return <ActivityIndicatorScreen/>
         case'FlatList':
             return<FlatListScreen/> 
         case'Modal':
             return<ModalScreen/>
+        case'Repaso':
+            return<RepasoScreen/>
         case 'menu':
             default:
                 return (
@@ -44,6 +47,7 @@ export default function MenuScreen() {
                     <Button color='purple'  onPress={()=>setCreen('ActivityIndicator')} title='Pract:ActivityIndicator'/>
                     <Button color='purple'  onPress={()=>setCreen('FlatList')} title='Pract:FlatList y Section List'/>
                     <Button color='purple'  onPress={()=>setCreen('Modal')} title='Pract:Modal '/>
+                    <Button color='purple'  onPress={()=>setCreen('Repaso')} title='Repaso P.11 '/>
                     </View>
 
                     </View>
