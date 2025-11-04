@@ -1,5 +1,5 @@
-import { Text, StyleSheet, View, TextInput, Button, Alert} from 'react-native'
-import React, { Component, use, useState} from 'react'
+import { Text, StyleSheet, View, TextInput, Button, Alert, Switch} from 'react-native'
+import React, { useEffect, useState} from 'react'
 
 
 export default function TextScreen() {
