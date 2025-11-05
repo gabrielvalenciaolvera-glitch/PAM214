@@ -27,7 +27,7 @@ export default function RepasoScreen() {
         Alert.alert('Registro Exitoso', `Nombre: ${nombre}\n Email: ${correo}`);
         /*alert(`Registro Exitoso, Nombre: ${nombre}, Email: ${correo}`);*/
       }
-
+      
       }
 
 
