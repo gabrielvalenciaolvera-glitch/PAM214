@@ -9,6 +9,8 @@ import ActivityIndicatorScreen from './ActivityIndicatorScreen';
 import FlatListScreen from './FlatListScreen';
 import ModalScreen from './ModalScreen';
 import RepasoScreen from './RepasoScreen';
+import BotonSheet from './BotonSheet';
+
 
 export default function MenuScreen() {
 
@@ -33,6 +35,8 @@ export default function MenuScreen() {
             return<ModalScreen/>
         case'Repaso':
             return<RepasoScreen/>
+        case'BotonSheet':
+            return<BotonSheet/>
         case 'menu':
             default:
                 return (
@@ -47,6 +51,7 @@ export default function MenuScreen() {
                     <Button color='purple'  onPress={()=>setCreen('ActivityIndicator')} title='Pract:ActivityIndicator'/>
                     <Button color='purple'  onPress={()=>setCreen('FlatList')} title='Pract:FlatList y Section List'/>
                     <Button color='purple'  onPress={()=>setCreen('Modal')} title='Pract:Modal '/>
+                    <Button color='purple'  onPress={()=>setCreen('BotonSheet')} title='BotonSheet '/>
                     <Button color='purple'  onPress={()=>setCreen('Repaso')} title='Repaso P.11 '/>
                     </View>
 
