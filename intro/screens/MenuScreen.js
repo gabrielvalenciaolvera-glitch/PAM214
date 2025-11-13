@@ -6,7 +6,7 @@ import TextScreen from './TextScreen';
 import ImageScreen from './ImageScreen';
 import ScrollScreen from './ScrollViewScreen';
 import ActivityIndicatorScreen from './ActivityIndicatorScreen';
-import FlatListScreen, { FlatList } from './FlatListScreen';
+import FlatListScreen from './FlatListScreen';
 import ModalScreen from './ModalScreen';
 import RepasoScreen from './RepasoScreen';
 
