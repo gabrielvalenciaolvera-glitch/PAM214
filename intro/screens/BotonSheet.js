@@ -1,100 +1,101 @@
-import { Text, StyleSheet, View, Dimensions } from 'react-native'
-import React, {useRef} from 'react'
-import { PanResponder } from 'react-native';
-import { Animated } from 'react-native';
-import { TouchableOpacity } from 'react-native';
+import { Text, StyleSheet, View, Dimensions, Animated, TouchableOpacity, PanResponder } from 'react-native'
+import React, { useRef } from 'react'
 
-export default function BotonSheet(){
-    const{height} = Dimensions.get(window);
-    const BottonSheetHeight = height * 0.6;
-    const startPosition = height - 100;
-    const AnimatedValue = useRef (new Animated.Value(startPosition)).current
-    
-    const topLimit = height - BottonSheetHeight
-    const bottomLimit = startPosition
+export default function BottomSheetScreens() {
 
-    const PanResponder = useRef (
-        PanResponder.create({
-            onStarShouldSetPanResponder: () => true,
-            onPanResponderMove: (  gettureState) => {
-                let newY = gettureState.maveY ;
-                if (newY < topLimit) newY = topLimit
-                if(newY > bottomLimit) newY = bottomLimit
-                AnimatedValue.setValue(newY)
-            },
-            onPanResponderRelease: (gettureState) =>{
-                if(gettureState.vy < -0.5 || gettureState.moveY < height){
-                    openSheet();
-                }
-                else{
-                    closeSheet();
-                }
-            },
+  const { height } = Dimensions.get("window");
+  const BottomSheetHeight = height * 0.6;
+  const startPosition = height - 100;
+  const AnimatedValue = useRef(new Animated.Value(startPosition)).current;
 
-        })
-    ).current
+  const topLimit = height - BottomSheetHeight;
+  const bottomLimit = startPosition;
 
-    const openSheet = () => {
-        Animated.spring(AnimatedValue, {
-            toValue: topLimit,
-            useNativeDriver: false,
-            tension: 50
-        }).start();
-    };
+  const panResponder = useRef(
+    PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
 
-    const closeSheet = ()=> {
-        Animated.spring(AnimatedValue, {
-            toValue: bottomLimit,
-            useNativeDriver: false,
-            tension: 50,
-        }).start();
-    };
-    return (
-        <View style={styles.container}>
-            <Text style={styles.title}>BottomSheet Arrastrable</Text>
-            <TouchableOpacity style={styles.btn} onPress={openSheet}>
-                <Text style={styles.btnText}> Abrir</Text>
-            </TouchableOpacity>
+      onPanResponderMove: (evt, gestureState) => {
+        let newY = gestureState.moveY;
 
-            <Animated.View
-            
-            pointerEvents='none'
-            style={[styles.overlay, {
-                opacity:AnimatedValue.interpolate({
-                    inputRange: [topLimit, bottomLimit],
-                    outputRange:[0.5,0],
+        if (newY < topLimit) newY = topLimit;
+        if (newY > bottomLimit) newY = bottomLimit;
 
+        AnimatedValue.setValue(newY);
+      },
 
-                }),
-            }] }
-            
-            >
+      onPanResponderRelease: (evt, gestureState) => {
+        if (gestureState.vy < -0.5 || gestureState.moveY < height / 2) {
+          openSheet();
+        } else {
+          closeSheet();
+        }
+      },
+    })
+  ).current;
 
-            </Animated.View>
-            <Animated.View
-                style = {[
-                    styles.bottomSheet, {
-                        top: AnimatedValue,
-                    }
-                ]}
-                {...PanResponder.PanHandLers}
-            
-            >
-                <View style={styles.handle}>
-                    <Text style={styles.sheetTitle}>OPCIONES</Text>
-                    <Text style={styles.option}>Perfil</Text>
-                    <Text style={styles.option}>Configuracion</Text>
-                    <Text style={styles.option}>Ayuda</Text>
-                    <TouchableOpacity onPress={closeSheet}>
-                        <Text style={[styles.option, {color:'red', marginTop: 10}]}>Cerrar</Text>
-                    </TouchableOpacity>
-                </View>
+  const openSheet = () => {
+    Animated.spring(AnimatedValue, {
+      toValue: topLimit,
+      useNativeDriver: false,
+      tension: 50,
+    }).start();
+  };
 
-            </Animated.View>
-        </View>
+  const closeSheet = () => {
+    Animated.spring(AnimatedValue, {
+      toValue: bottomLimit,
+      useNativeDriver: false,
+      tension: 50,
+    }).start();
+  };
 
-    )
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>BottomSheet Arrastrable</Text>
+
+      <TouchableOpacity style={styles.btn} onPress={openSheet}>
+        <Text style={styles.btnText}>Abrir</Text>
+      </TouchableOpacity>
+
+      <Animated.View
+        pointerEvents="auto"
+        style={[
+          styles.overlay,
+          {
+            opacity: AnimatedValue.interpolate({
+              inputRange: [topLimit, bottomLimit],
+              outputRange: [0.5, 0],
+            }),
+          },
+        ]}
+      />
+
+      <Animated.View
+        style={[
+          styles.bottomSheet,
+          {
+            top: AnimatedValue,
+          },
+        ]}
+        {...panResponder.panHandlers}
+      >
+        <View style={styles.handle} />
+        <Text style={styles.sheetTitle}>OPCIONES</Text>
+
+        <Text style={styles.option}>Perfil</Text>
+        <Text style={styles.option}>Configuración</Text>
+        <Text style={styles.option}>Ayuda</Text>
+
+        <TouchableOpacity onPress={closeSheet}>
+          <Text style={[styles.option, { color: 'red', marginTop: 10 }]}>Cerrar</Text>
+        </TouchableOpacity>
+      </Animated.View>
+    </View>
+  );
 }
+
+const { height } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: { flex: 1, alignItems: 'center', justifyContent: 'center' },
